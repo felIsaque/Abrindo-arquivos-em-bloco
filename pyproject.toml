@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "abrindo-arquivos-em-blocos"
+version = "0.1.0"
+description = ""
+authors = ["isaque <isaque_dev@protonmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+watchdog = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
