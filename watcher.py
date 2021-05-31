@@ -1,36 +1,31 @@
 import os
 import sys
 import time
+from pathlib import Path
+from os import sep
 
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 
 
 class MonitorFolder(FileSystemEventHandler):
-    FILE_SIZE = 1000
+    file_name = "Sent"
 
     def on_created(self, event):
         print(event.src_path, event.event_type)
-        self.checkFolderSize(event.src_path)
 
     def on_modified(self, event):
         print(event.src_path, event.event_type)
-        self.checkFolderSize(event.src_path)
 
     def on_deleted(self, event):
         print(event.src_path, event.event_type)
 
-    def checkFolderSize(self, src_path):
-        if os.path.isdir(src_path):
-            if os.path.getsize(src_path) > self.FILE_SIZE:
-                print("Time to backup the dir")
-        else:
-            if os.path.getsize(src_path) > self.FILE_SIZE:
-                print("very big file, needs to be backed up")
-
 
 if __name__ == "__main__":
-    src_path = sys.argv[1]
+    home_path = str(Path.home())
+    path_file = f"{home_path}{sep}Documents"
+
+    src_path = f"{home_path}{sep}Documents{sep}6xChb"
 
     event_handler = MonitorFolder()
     observer = Observer()

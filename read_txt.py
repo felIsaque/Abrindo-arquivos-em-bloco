@@ -2,8 +2,8 @@ import sys
 
 
 def get_paragraph(file):
-    paragraph = ''
-    line_in_memory = ''
+    paragraph = ""
+    line_in_memory = ""
 
     while not line_in_memory.isspace():
         try:
@@ -40,25 +40,10 @@ teste = []
 paragraphs = []
 paragraphs2 = []
 
-with open('sample3.txt', 'r') as file:
-    file2 = open('sample1.txt', 'r')
-
+with open("sample3.txt", "r") as file:
     while 1:
-        paragraph_list = get_paragraph_list(file, 13636)
+        paragraph_list = get_paragraph_list(file, 27272)
 
-        while 1:
-            paragraph_list2 = get_paragraph_list(file2, 13636)
-            # import ipdb; ipdb.set_trace()
-            if not paragraph_list2:
-                file2.close()
-                file2 = open('sample1.txt', 'r')
-                break
-            paragraphs2.append(paragraph_list2)
-
-            if paragraph_list[-1] in paragraph_list2[-1]:
-                teste.append()
-
-        # if not paragraph_list:
-        #     file2.close()
-        #     break
-        # paragraphs.append(paragraph_list)
+        if not paragraph_list:
+            break
+        paragraphs.append(paragraph_list)
